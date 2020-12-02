@@ -1,0 +1,17 @@
+{
+  "name": "vendor_name/crud-php",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "rdrgz",
+      "email": "rdrgzma@hotmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  }
+}
