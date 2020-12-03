@@ -29,6 +29,11 @@
                         </td>
                     </tr>';
         }
+    $resultado = strlen($resultado) ? $resultado : '<tr>
+                                                        <td colspan="6" class="text-center">
+                                                            Nenhuma vaga encontrada
+                                                        </td>
+                                                    </tr>';
 ?>
 <main>
     <section>
