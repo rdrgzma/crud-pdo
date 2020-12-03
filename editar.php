@@ -1,14 +1,23 @@
 <?php
 require __DIR__.'/vendor/autoload.php';
 use \App\Entity\Vaga;
-$vaga = new Vaga;
-define('TITLE','Cadastrar Vaga');
-if (isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
+if (!isset($_GET['id']) or !isset($_GET['id'])){
+    header('location: index.php?status=error');
+    exit;
+}
+define('TITLE','Editar Vaga');
 
+$vaga = VAGA::getVaga($_GET['id']);
+
+if(!$vaga instanceof Vaga){
+    header('location: index.php?status=error');
+    exit;
+}
+if (isset($_POST['titulo'],$_POST['descricao'],$_POST['ativo'])){
     $vaga->titulo = $_POST['titulo'];
     $vaga->descricao = $_POST['descricao'];
     $vaga->ativo = $_POST['ativo'];
-    $vaga->cadastrar();
+    $vaga->atualizar();
     header('location: index.php?status=success');
     exit;
 }
